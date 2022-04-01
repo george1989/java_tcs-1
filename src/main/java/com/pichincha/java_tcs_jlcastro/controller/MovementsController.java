@@ -36,7 +36,7 @@ public class MovementsController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable(value = "id") Long personId, @RequestBody MovementsDto movementsDto) {
+    public ResponseEntity update(@PathVariable(value = "id") Integer personId, @RequestBody MovementsDto movementsDto) {
         try {
             return new ResponseEntity(movementsService.updateMovements(personId, movementsDto), HttpStatus.OK);
         } catch (NoResourceException e) {
@@ -45,7 +45,7 @@ public class MovementsController {
     }
 
     @DeleteMapping("/{orderId}")
-    public ResponseEntity deleteOrder(@PathVariable(value = "orderId") Long orderId) {
+    public ResponseEntity deleteOrder(@PathVariable(value = "orderId") Integer orderId) {
         try {
             movementsService.deleteMovementse(orderId);
             return new ResponseEntity("Se elimino la entidad",HttpStatus.OK);

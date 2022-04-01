@@ -3,11 +3,13 @@ package com.pichincha.stark.Crud_Cuentas.servicio.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pichincha.stark.Crud_Cuentas.entity.Cuentas;
 import com.pichincha.stark.Crud_Cuentas.respositorio.CuentasRepositorio;
 import com.pichincha.stark.Crud_Cuentas.servicio.CuentasServicio;
 
+@Service
 public class CuentasServicioImpl implements CuentasServicio{
 	@Autowired
 	private CuentasRepositorio cuentaRepository;
@@ -29,7 +31,7 @@ public class CuentasServicioImpl implements CuentasServicio{
 	@Override
 	public Cuentas readAcountWithNumber(String accountNumber) throws Exception {
 
-		List<Cuentas> accountEntities = cuentaRepository.findAllByAccountNumber(accountNumber);
+		List<Cuentas> accountEntities = cuentaRepository.findAllByNumeroCuenta(accountNumber);
 
 		if (accountEntities == null) {
 			throw new Exception("Account Not Found");

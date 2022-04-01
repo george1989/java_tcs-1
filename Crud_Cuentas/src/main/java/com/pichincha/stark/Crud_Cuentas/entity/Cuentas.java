@@ -41,10 +41,10 @@ public class Cuentas {
 	@Column(name = "SALDO")
 	private String saldo;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sourceAccountDetalles", orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "deLaCuenta", orphanRemoval = true)
 	private List<Movimientos> sourceMovimientos;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "destinationAccountDetalles", orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aLaCuenta", orphanRemoval = true)
 	private List<Movimientos> destinacionMovimientos;
 	
 	@JsonIgnore
